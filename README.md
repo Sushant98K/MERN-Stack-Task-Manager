@@ -12,5 +12,8 @@
 
 
 
-
+Forntend
 npm i axios moment react-hot-toast react-icons react-router-dom recharts
+
+Backend
+npm i express jsonwebtoken mongoose multer bcryptjs cors dotenv exceljs

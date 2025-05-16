@@ -1,0 +1,59 @@
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.env
+.env.*
+
+
+# --- Build Output ---
+dist/
+build/
+.next/
+out/
+coverage/
+.tmp/
+temp/
+.cache/
+.vite/
+
+
+# --- Logs ---
+logs/
+*.log
+*.log.*
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.swp
+
+# --- MongoDB ---
+dump/
+
+# --- React ---
+/frontend/build
+
+# --- Express / Backend ---
+/backend/node_modules
+/backend/dist
+
+# --- Misc ---
+*.local
+*.sublime-project
+*.sublime-workspace
+
+# Optional: PM2 logs or debug
+pids
+*.pid
+*.seed
+
+# Optional: Docker
+docker-compose.override.yml
