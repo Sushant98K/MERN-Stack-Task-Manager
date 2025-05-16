@@ -8,3 +8,9 @@
 6. Task Report Downloads – Export task data for analysis and tracking.
 7. Attachments Support – Add and access task-related file links easily.
 8. Mobile Responsive UI – Seamless experience on desktop, tablet, and mobile.
+
+
+
+
+
+npm i axios moment react-hot-toast react-icons react-router-dom recharts
