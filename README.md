@@ -17,3 +17,6 @@ npm i axios moment react-hot-toast react-icons react-router-dom recharts
 
 Backend
 npm i express jsonwebtoken mongoose multer bcryptjs cors dotenv exceljs
+
+Creating HEX Secret Key for jwt
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
