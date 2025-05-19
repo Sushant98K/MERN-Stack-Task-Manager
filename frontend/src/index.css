@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 @import "tailwindcss";
 
 /* html,body{
@@ -8,14 +8,14 @@
   font-family: 'Manrope', sans-serif;
 } */
 
-@theme{
-  --font-manrope: 'Manrope', sans-serif;
-  --breakpoint-3xl: 1920px
-  --color-primary: #1368EC
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  --breakpoint-3xl: 1920px;
+  --color-primary: #1368ec;
 }
 
-@layer base{
-  html{
+@layer base {
+  html {
     font-family: var(--font-manrope);
   }
 
@@ -24,4 +24,12 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
+}
+
+.input-box {
+  @apply w-full flex justify-between gap-3 text-sm text-black bg-slate-100/50 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none;
+}
+
+.btn-primary {
+  @apply w-full text-sm font-bold text-white bg-primary shadow-lg shadow-purple-600/5 p-[10px] rounded-md my-1 hover:text-blue-600 hover:bg-blue-600/15 cursor-pointer; 
 }
