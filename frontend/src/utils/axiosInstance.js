@@ -1,9 +1,9 @@
 import axios from "axios";
-import { BASE_URL } from "./apiPaths";
+import { BASE_URL } from "./apiPath";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  setTimeout: 10000,
+  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -24,7 +24,7 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-// Response Interceotor
+// Response Interceptor
 axiosInstance.interceptors.response.use(
   (response) => {
     return response;
@@ -33,8 +33,10 @@ axiosInstance.interceptors.response.use(
     // Handle common error globally
     if (error.response) {
       if (error.response.status === 401) {
-        // Reidrect to login page
-        window.location.href = "/login";
+        // Only redirect if not already on login route
+        if (window.location.pathname !== "/login") {
+          window.location.href = "/login";
+        }
       } else if (error.response.status === 500) {
         console.error("Server error. Please try again later...");
       }
