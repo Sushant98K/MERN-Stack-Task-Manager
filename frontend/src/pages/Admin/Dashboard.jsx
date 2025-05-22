@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { useUserAuth } from "../../hooks/useUserAuth";
+import { UserContext } from "../../context/userContext";
 
 const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+  useUserAuth();
 
-export default Dashboard
+  const {user} = useContext(UserContext)
+
+  return (
+    <div>
+      Admin Dashboard
+    </div>
+  )
+};
+
+export default Dashboard;
