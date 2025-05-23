@@ -282,7 +282,7 @@ const getDashboardData = async (req, res) => {
     const taskDistribution = taskStatuses.reduce((acc, status) => {
       const formattedKey = status.replace(/\s+/g, ""); // Remove spaces for response keys
       acc[formattedKey] =
-        taskDistributionRaw.find((item) => item._id === status)?.cound || 0;
+        taskDistributionRaw.find((item) => item._id === status)?.count || 0;
       return acc;
     }, {});
     taskDistribution["All"] = totalTasks; // Add total count to taskDistribution
