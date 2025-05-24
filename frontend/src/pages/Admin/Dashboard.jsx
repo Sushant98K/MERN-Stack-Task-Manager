@@ -10,6 +10,9 @@ import InfoCard from "../../components/Cards/InfoCard";
 import { addThousandsSeparator } from "../../utils/helper";
 import { LuArrowRight } from "react-icons/lu";
 import TaskListTable from "../../components/TaskListTable";
+import CustomPieChart from "../../components/Charts/CustomPieChart";
+
+const COLORS = ["#8D51FF", '#00B8DB', '#7BCE00']
 
 const Dashboard = () => {
   useUserAuth();
@@ -21,6 +24,28 @@ const Dashboard = () => {
   const [pieChartData, setPieChartData] = useState([]);
   const [barChartData, setBarChartData] = useState([]);
 
+  // PRepare Chart Data
+  const prepareChartData = (data) => {
+    const taskDistribution = data?.taskDistribution || null
+    const taskPriorityLevels = data?.taslPriorityLevels || null
+
+    const taskDistributionData = [
+      {status: 'Pending', count: taskDistribution?.Pending || 0},
+      {status: 'In Progress', count: taskDistribution?.InProgress || 0},
+      {status: 'Completed', count: taskDistribution?.Completed || 0},
+    ]
+
+    setPieChartData(taskDistributionData)
+
+    const priorityLevelData = [
+      { priority: "Low", count: taskPriorityLevels?.Low || 0 },
+      { priority: "Medium", count: taskPriorityLevels?.Medium || 0 },
+      { priority: "High", count: taskPriorityLevels?.High || 0 },
+    ];
+
+    setBarChartData(priorityLevelData)
+  }
+
   const getDashboardData = async () => {
     try {
       const response = await axiosInstance.get(
@@ -28,6 +53,7 @@ const Dashboard = () => {
       );
       if (response.data) {
         setDashboardData(response.data);
+        prepareChartData(response.data?.charts || null)
       }
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -96,10 +122,24 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-2 gap-6 my-4 md:my-6">
+
+        <div>
+          <div className="card">
+            <div className="flex items-center justify-between">
+              <h5 className="text-lg font-medium">Task Distribution</h5>
+            </div>
+
+            <CustomPieChart
+              data={pieChartData}
+              colors={COLORS}
+            />
+          </div>
+        </div>
+
         <div className="md:col-span-2">
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="text-lg">Recent Tasks</h5>
+              <h5 className="text-lg font-medium">Recent Tasks</h5>
 
               <button className="card-btn" onClick={onSeeMore}>
                 See All
