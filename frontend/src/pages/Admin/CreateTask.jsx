@@ -6,6 +6,8 @@ import DashboardLayout from "../../components/Layouts/DashboardLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PRIORITY_DATA } from "../../utils/data";
 import SelectDropdown from "../../components/Inputs/SelectDropdown";
+import SelectUsers from "../../components/Inputs/SelectUsers";
+import TodoListInput from "../../components/Inputs/TodoListInput";
 
 const CreateTask = () => {
   const location = useLocation();
@@ -50,7 +52,35 @@ const CreateTask = () => {
   // Update Task
   const updateTask = async () => {};
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async () => {
+    setError(null)
+
+    // Input Validation
+    if (!taskData.title.trim()) {
+      setError("Title is required.")
+      return;
+    }
+    if (!taskData.description.trim()) {
+      setError("Description is required.")
+      return;
+    }
+    if (!taskData.dueDate) {
+      setError("Due Date is required.")
+      return;
+    }
+
+    if (taskData.todoChecklist?.length === 0) {
+      setError("Add atleast one todo task.")
+      return;
+    }
+
+    if (taskId) {
+      updateTask()
+      return;
+    }
+
+    createTask()
+  };
 
   // Get Task info by id
   const getTaskDetailsByID = async () => {};
@@ -79,7 +109,7 @@ const CreateTask = () => {
             </div>
 
             <div className="mt-4">
-              <label className="text-xs font-medium text-slate-600">
+              <label className="text-xs font-bold text-slate-600">
                 Task Title
               </label>
 
@@ -94,7 +124,9 @@ const CreateTask = () => {
             </div>
 
             <div className="mt-3">
-              <label className="text-xs font-medium text-slate-600">Description</label>
+              <label className="text-xs font-bold text-slate-600">
+                Description
+              </label>
 
               <textarea
                 placeholder="Describe Task"
@@ -109,7 +141,9 @@ const CreateTask = () => {
 
             <div className="grid grid-cols-12 gap-4 mt-2">
               <div className="col-span-6 md:col-span-4">
-                <label className="text-xs font-medium text-slate-600">Priority</label>
+                <label className="text-xs font-bold text-slate-600">
+                  Priority
+                </label>
 
                 <SelectDropdown
                   options={PRIORITY_DATA}
@@ -118,8 +152,65 @@ const CreateTask = () => {
                   placeholder="Select Priority"
                 />
               </div>
+
+              <div className="col-span-6 md:col-span-4">
+                <label className="text-xs font-bold text-slate-600">
+                  Due Date
+                </label>
+
+                <input
+                  type="date"
+                  className="form-input"
+                  value={taskData.dueDate}
+                  onChange={({ target }) =>
+                    handleValueChange("dueDate", target.value)
+                  }
+                />
+              </div>
+
+              <div className="col-span-12 md:col-span-3">
+                <label className="text-xs font-bold text-slate-600">
+                  Assign To
+                </label>
+
+                <SelectUsers
+                  selectedUsers={taskData.assignedTo}
+                  setSelectedUsers={(value) => {
+                    handleValueChange("assignedTo", value)
+                  }}
+                />
+              </div>
+
+              
             </div>
 
+            <div className="mt-3">
+              <label className="text-xs font-medium text-slate-600">TODO Checklist</label>
+
+              <TodoListInput
+                todoList={taskData?.todoChecklist}
+                setTodoList={(value)=> handleValueChange("todoChecklist", value)}
+              />
+            </div>
+                
+            <div className="mt-3">
+              <label className="text-xs font-medium text-slate-600">Add Attachments</label>
+
+              <AddAttachmentsInput
+                attachments={taskData?.attachments}
+                setAttachments={(value) =>
+                  handleValueChange("attachments", value)
+                }
+              />
+            </div>
+            
+            {error && (
+              <p className="text-xs font-medium text-red-300 mt-5">{error}</p>
+            )}
+
+            <div className="flex justify-end mt-7">
+              <button className="add-btn" onClick={handleSubmit} disabled={loading}>{ taskId ? "UPDATE TASK" : "CREATE TASK"}</button>
+            </div>
           </div>
         </div>
       </div>
