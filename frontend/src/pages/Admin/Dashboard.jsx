@@ -69,7 +69,8 @@ const Dashboard = () => {
     getDashboardData();
 
     return () => {};
-  }, []);
+    
+  },[]);
 
   return (
     <DashboardLayout activeMenu="Dashboard">

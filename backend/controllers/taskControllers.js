@@ -288,7 +288,7 @@ const getDashboardData = async (req, res) => {
     taskDistribution["All"] = totalTasks; // Add total count to taskDistribution
 
     // Ensure all priority levels are included
-    const taskPriorites = ["Low", "Meduim", "High"];
+    const taskPriorites = ["Low", "Medium", "High"];
     const taskPrioritesLevelsRaw = await Task.aggregate([
       {
         $group: {
@@ -366,7 +366,7 @@ const getUserDashboardData = async (req, res) => {
     taskDistribution["All"] = totalTasks; // Add total count to taskDistribution
 
     // Task Distrubution Priority
-    const taskPriorites = ["Low", "Meduim", "High"];
+    const taskPriorites = ["Low", "Medium", "High"];
     const taskPrioritesLevelsRaw = await Task.aggregate([
       { $match: { assignedTo: userId } },
       { $group: { _id: "$status", count: { $sum: 1 } } },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiMiniPlus, HiOutlineTrash } from "react-icons/hi2";
 
 const TodoListInput = ({ todoList, setTodoList }) => {
@@ -15,7 +15,7 @@ const TodoListInput = ({ todoList, setTodoList }) => {
   // Function to handle deleting an option
   const handleDeleteOption = (index) => {
     const updateArr = todoList.filter((_, idx) => idx !== index);
-    setTodoList(updatedArr);
+    setTodoList(updateArr);
   };
 
   return (
