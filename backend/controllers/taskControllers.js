@@ -360,7 +360,7 @@ const getUserDashboardData = async (req, res) => {
     const taskDistribution = taskStatuses.reduce((acc, status) => {
       const formattedKey = status.replace(/\s+/g, ""); // Remove spaces for response keys
       acc[formattedKey] =
-        taskDistributionRaw.find((item) => item._id === status)?.cound || 0;
+        taskDistributionRaw.find((item) => item._id === status)?.count || 0;
       return acc;
     }, {});
     taskDistribution["All"] = totalTasks; // Add total count to taskDistribution
@@ -369,7 +369,7 @@ const getUserDashboardData = async (req, res) => {
     const taskPriorites = ["Low", "Medium", "High"];
     const taskPrioritesLevelsRaw = await Task.aggregate([
       { $match: { assignedTo: userId } },
-      { $group: { _id: "$status", count: { $sum: 1 } } },
+      { $group: { _id: "$priority", count: { $sum: 1 } } },
     ]);
     const taskPrioritesLevels = taskPriorites.reduce((acc, priority) => {
       acc[priority] =
