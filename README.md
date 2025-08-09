@@ -149,4 +149,4 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 **Sushant**  
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-black?logo=github)](https://github.com/Sushant98K)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/your-link)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/sushant-kate/)  
