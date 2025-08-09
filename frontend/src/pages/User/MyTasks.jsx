@@ -43,7 +43,7 @@ const MyTasks = () => {
   };
 
   const handleClick = (taskId) => {
-    navigate(`/user/task-deatails/${taskId}`);
+    navigate(`/user/tasks-detail/${taskId}`);
   };
 
   useEffect(() => {
