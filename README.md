@@ -93,9 +93,9 @@ npm run dev
 
 ## 📸 Screenshots
 
-| Dashboard | Task Management | Reports |
+| Log-in | Dashboard | Task Management |
 |-----------|-----------------|---------|
-| ![Dashboard](Meta/dashboard.png) | ![Tasks](https://via.placeholder.com/300x200) | ![Reports](https://via.placeholder.com/300x200) |
+| ![LoginPage](Meta/login.png) | ![Dashboard](Meta/dashboard.png) | ![TaskManagement](Meta/management.png) |
 
 ---
 
