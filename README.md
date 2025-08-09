@@ -95,7 +95,7 @@ npm run dev
 
 | Log-in | Dashboard | Task Management |
 |-----------|-----------------|---------|
-| ![LoginPage](Meta/login.png) | ![Dashboard](Meta/dashboard.png) | ![TaskManagement](Meta/management.png) |
+| ![LoginPage](Meta/login.webp) | ![Dashboard](Meta/dashboard.webp) | ![TaskManagement](Meta/management.webp) |
 
 ---
 
