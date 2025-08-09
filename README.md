@@ -73,8 +73,8 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 PORT=8000
 ADMIN_INVITE_TOKEN=create_admin_invite_code
+```
 
-```bash
 Run backend server:
 
 ```bash
