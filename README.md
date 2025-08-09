@@ -1,8 +1,12 @@
+<div align="center"> 
+
 # 📋 MERN Stack Task Manager
 
 ![MERN Stack](https://img.shields.io/badge/MERN-Stack-blueviolet?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Responsive](https://img.shields.io/badge/Responsive-Design-brightgreen?style=for-the-badge&logo=react&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+
+</div>
 
 ## 📖 Overview
 
@@ -91,7 +95,7 @@ npm run dev
 
 | Dashboard | Task Management | Reports |
 |-----------|-----------------|---------|
-| ![Dashboard](meta/dashboard.png) | ![Tasks](https://via.placeholder.com/300x200) | ![Reports](https://via.placeholder.com/300x200) |
+| ![Dashboard](Meta/dashboard.png) | ![Tasks](https://via.placeholder.com/300x200) | ![Reports](https://via.placeholder.com/300x200) |
 
 ---
 
